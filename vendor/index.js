@@ -6,7 +6,7 @@ const newOrderHandler = (payload) => {
   setTimeout(() => {
     eventEmitter.emit('EVENT', 'pickup', payload);
     eventEmitter.emit('PICKUP', payload);
-  }, 5000);
+  }, 4000);
 };
 
 const deliveredHandler = (payload) => {
