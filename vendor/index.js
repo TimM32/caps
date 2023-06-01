@@ -1,19 +1,11 @@
 'use strict';
 
-const eventEmitter = require('../eventEmitter');
+const { orderHandler, orderMessage } = require('./handler');
+const eventEmitter = require('../event-pool');
 
-const newOrderHandler = (payload) => {
-  setTimeout(() => {
-    eventEmitter.emit('EVENT', 'pickup', payload);
-    eventEmitter.emit('PICKUP', payload);
-  }, 4000);
-};
+setInterval(() =>{
+  eventEmitter.emit('Package ready');
+}, 4000);
 
-const deliveredHandler = (payload) => {
-    setTimeout(() => {
-        console.log('VENDOR: Thank you for your order', payload.customer);
-        eventEmitter.emit('DELIVERED', payload);
-      }, 500);
-}
-
-module.exports = { newOrderHandler, deliveredHandler };
+eventEmitter.on('Package ready', orderHandler);
+eventEmitter.on('received', orderMessage);
