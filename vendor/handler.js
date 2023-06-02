@@ -5,7 +5,7 @@ const eventEmitter = require('../event-pool');
 
 let chance = new Chance();
 
-const orderHandler = (payload = null) =< {
+const orderHandler = (payload = null) => {
     if(!payload) {
         payload = {
             store: chance.company(),
