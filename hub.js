@@ -10,6 +10,6 @@ eventEmitter.on('on the move', (payload) => logger('on the move', payload));
 eventEmitter.on('delivered', (payload) => logger('delivered', payload));
 
 function logger(event, payload){
-    const timestamp = new Date();
-    console.log('Event:', { event. timestamp, payload});
+  const timestamp = new Date();
+  console.log('Event:', { event, timestamp, payload});
 }
